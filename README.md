@@ -6,3 +6,5 @@
 
 # 说明
 一个用来自己玩的机器人api网站
+API接口基于django的restframwork
+代码还需要继续重构（咕咕咕）
