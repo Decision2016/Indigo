@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from utils.functions import get_env
 
-production_env = get_env("OJ_ENV", "dev") == "production"
+production_env = get_env("ENV", "dev") == "production"
 if production_env:
     from .prodection_env import *
 else:
@@ -25,9 +25,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'emo=l**5v4g5q=dd6y!5(a^h^xel_=-v%tljnp$snzr$cl48re'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
