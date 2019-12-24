@@ -10,6 +10,5 @@ urlpatterns = [
     url(r'^commands', views.CommandAPI.as_view()),
     url(r'^get_command_total', views.CommandTotalGetAPI.as_view()),
     url(r'^groups', views.GroupAPI.as_view()),
-    url(r'^users', views.UserGetAPI.as_view()),
-    url(r'^set', views.EditCountAPI.as_view())
+    url(r'^person', views.PersonAPI.as_view()),
 ]

@@ -4,9 +4,9 @@ from account.models import User, Person, Command, Group
 
 class UserSerializer(serializers.Serializer):
     username = serializers.CharField()
-    open_secret = serializers.CharField()
-    super_user_id = serializers.IntegerField()
-    cq_url = serializers.CharField()
+    openSecret = serializers.CharField()
+    superUserId = serializers.IntegerField()
+    cqUrl = serializers.CharField()
 
     class Meta:
         model = User
@@ -14,9 +14,10 @@ class UserSerializer(serializers.Serializer):
 
 
 class PersonSerializer(serializers.Serializer):
-    number = serializers.CharField()
-    nickName = serializers.CharField()
-    in_group = serializers.BooleanField()
+    id = serializers.IntegerField()
+    userId = serializers.CharField()
+    nickname = serializers.CharField()
+    inGroup = serializers.BooleanField()
     count = serializers.IntegerField()
 
     class Meta:
@@ -25,10 +26,11 @@ class PersonSerializer(serializers.Serializer):
 
 
 class CommandSerializer(serializers.Serializer):
-    pattern_string = serializers.CharField()
-    output_command = serializers.CharField()
-    max_length = serializers.CharField()
-    open_re = serializers.BooleanField()
+    id = serializers.IntegerField()
+    patternString = serializers.CharField()
+    outputCommand = serializers.CharField()
+    maxLength = serializers.CharField()
+    openRe = serializers.BooleanField()
     nickname = serializers.CharField()
 
     class Meta:
@@ -44,7 +46,7 @@ class OnlyCommandSerializer(serializers.Serializer):
 
 
 class GroupSerializer(serializers.Serializer):
-    group_id = serializers.IntegerField()
+    groupId = serializers.IntegerField()
 
     class Meta:
         model = Group

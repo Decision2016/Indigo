@@ -6,20 +6,20 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     username = models.TextField(unique=True)
-    open_secret = models.TextField()
-    super_user_id = models.BigIntegerField()
-    cq_url = models.TextField(default='')
-    porn_switch = models.BooleanField(default=False)
+    openSecret = models.TextField()
+    superUserId = models.BigIntegerField()
+    cqUrl = models.TextField(default='')
+    pornSwitch = models.BooleanField(default=False)
 
     class Meta:
         db_table = "users_table"
 
 
 class Command(models.Model):
-    pattern_string = models.TextField()
-    output_command = models.TextField()
-    max_length = models.IntegerField()
-    open_re = models.BooleanField(default=False)
+    patternString = models.TextField()
+    outputCommand = models.TextField()
+    maxLength = models.IntegerField()
+    openRe = models.BooleanField(default=False)
     nickname = models.TextField()
     belong = models.ForeignKey(User, related_name='command', on_delete=models.SET_NULL, null=True)
 
@@ -28,7 +28,7 @@ class Command(models.Model):
 
 
 class Group(models.Model):
-    group_id = models.BigIntegerField()
+    groupId = models.BigIntegerField()
     belong = models.ForeignKey(Command, related_name='group', on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -36,11 +36,11 @@ class Group(models.Model):
 
 
 class Person(models.Model):
-    user_id = models.BigIntegerField()
+    userId = models.BigIntegerField()
     nickname = models.TextField()
-    in_group = models.BooleanField(default=True)
+    inGroup = models.BooleanField(default=True)
     count = models.BigIntegerField(default=0)
-    group = models.ForeignKey(Group, related_name='person', on_delete=models.SET_NULL, null=True)
+    belong = models.ForeignKey(Group, related_name='person', on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table = "person_table"
