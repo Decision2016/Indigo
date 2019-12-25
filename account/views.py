@@ -150,7 +150,7 @@ class PersonAPI(BaseAPIView):
         count = data['count']
         command = user.command.get(patternString=pattern_string)
         group = command.group.get(groupId=group_id)
-        user_info = get_person_information(group_id, user_id, user.cqUrll)
+        user_info = get_person_information(group_id, user_id, user.cqUrl)
         if group.person.filter(userId=user_id).exists():
             return self.error("member is existed")
         else:
