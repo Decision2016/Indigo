@@ -131,14 +131,10 @@ class PersonAPI(BaseAPIView):
     def put(self, request):
         data = request.data
         user = request.user
-        pattern_string = data['command']
         group_id = data['groupId']
-        user_id = data['userId']
         count = data['count']
-        command = user.command.get(patternString=pattern_string)
-        group = command.group.get(groupId=group_id)
-        person = group.person.get(userId=user_id)
-        user_info = get_person_information(group_id, user_id, user.cqUrl)
+        person = Person.objects.get(id=data['id'])
+        user_info = get_person_information(group_id, person.userId,  user.cqUrl)
         person.count = count
         person.nickname = user_info['data']['nickname']
         person.save()
